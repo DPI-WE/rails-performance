@@ -1,23 +1,12 @@
-# Replace with lesson title
+# N+1s, Caching and Performance 🏎️
 
-Add your content here!
+Two of the most common and easy-to-fix performance issues in Rails applications are "N+1" database queries and slow rendering of ERB templates.
 
-[Read up here for full instructions with examples for lesson writing.](https://learn.firstdraft.com/lessons/3-how-to-write-a-lesson)
+- Solve N+1s with .includes and the bullet gem: [How to use .includes? in Rails 7](https://levelup.gitconnected.com/how-to-use-includes-in-rails-7-643b5e1451c4)
+- Solve slow rendering of ERB with [fragment/"Russian doll" caching](https://guides.rubyonrails.org/caching_with_rails.html)
 
-## Heading 1
+N+1s are something that I try to resolve as soon as I have an action working the way I want it to, even while prototyping. Throw the [bullet gem](https://github.com/flyerhzm/bullet) into your project right from the start.
 
-Use `##` second or greater level headings (HTML `<h2>` and greater).
+View caching is something that I only do as needed, because it can add significant complexity to make sure you're not showing any of your users stale information.  Even though Rails makes it as easy as possible for us, there's a reason for the old saying that ["There are 2 hard problems in computer science: cache invalidation, naming things, and off-by-1 errors."](https://martinfowler.com/bliki/TwoHardThings.html)
 
-### Heading 1.1
-
-Reference images from the `assets/` folder like so:
-
-```
-![](assets/example-image.png)
-```
-
-You can use the path `/assets/my-image.png` or `assets/my-image.png`, both will render in your local markdown preview; and when you connect the repository with a Learn Lesson, the assets will upload to Cloudinary and the paths will automatically be converted to a hosted URL, e.g.:
-
-```
-![](https://res.cloudinary.com/[CLOUD_NAME]/image/upload/[IMAGE_VERSION]/appdev-lessons/[REPO_NAME]/[BRANCH]/[IMAGE_NAME])
-```
+You may also want to add [MiniProfiler](https://github.com/MiniProfiler/rack-mini-profiler) to your development environment to display a speed badge for every HTML page.
